@@ -1,46 +1,57 @@
 class Binary_Converter
     def initialize
-        base=gets
-        @base_number=base.to_i
-        test
-    end
-    def test
-        a=@base_number.to_s(2)  #decimal to binary converter
-        a=a.to_i
-        puts a
-        test2(a)
-    
+        get_number
     end
 
-    def test2(a)
-        n,array=a,[]
-        until n.zero?
-            n,r=n.divmod(10)
-            print "n="
-            print n
-            print "r="
-            print r
+    def get_number
+      choice= false
+      print "Put a number: "
+      user_number=gets
+      user_number=user_number.to_i
+      array=decimal_to_binary(user_number)
+      if user_number > 15
+        choice=true
+      end
+      print array
+      print_message(array,choice)
+    end
+
+    def decimal_to_binary(number)
+      binary_number=number.to_i
+      binary_number= binary_number.to_s(2)
+      return array_generator(binary_number)
+    end
+
+
+    def array_generator(binary_number) #separate ones, tenths,hundredths
+      number,array=binary_number.to_i,[]
+        until number.zero?
+            number,r=number.divmod(10)
             array.unshift(r)
         end
-        print array
-        test3(array)
+      return array
     end
 
-    def test3(array)
-        new_array=[]
+    def print_message(array,choice)
+      message_array=[]
+      if array[-1]==1
+        message_array << "wink" 
+      end
+      if array[-2]==1
+        message_array << "double wink"
+      end
+      if array[-3]==1
+        message_array << "close your eyes"
+      end
 
-        if array[0]==1 and array[1] != nil
-            new_array << "double blink"
+      if array[-4]==1
+        message_array << "jump"
+      end
 
-        elsif array[1]==1 or array[0]==1
-            new_array << "wink"
-        end
-
-        if array[0]==1 and array[2]==0
-            new_array << "close your eyes"
-        end
-        print new_array
+      if choice 
+        message_array=message_array.reverse()
+      end
+      print message_array
     end
 end
 Binary_Converter.new
-
