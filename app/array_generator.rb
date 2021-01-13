@@ -6,24 +6,26 @@ class ArrayGenerator
     @user_number = user_number.to_i
   end
 
-  def split_number(binary_number)
-    number = binary_number.to_i
-    array = []
+  def organizer(binary_number)
+    array,message_array = [],[]
+    number=binary_number.to_i
+    print choice(print_message(split_number(array,number),message_array))
+  end
+
+  def split_number(array,number)
     until number.zero?
       number, r = number.divmod(10)
       array.unshift(r)
     end
-    print array
-    print_message(array)
+    array
   end
 
-  def print_message(array)
-    message_array = []
+  def print_message(array,message_array)
     message_array << 'wink' if array[-1] == 1
     message_array << 'double wink' if array[-2] == 1
     message_array << 'close your eyes' if array[-3] == 1
     message_array << 'jump' if array[-4] == 1
-    print choice(message_array)
+    message_array
   end
 
   def choice(array)

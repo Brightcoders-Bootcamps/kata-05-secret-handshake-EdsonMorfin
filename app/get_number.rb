@@ -12,6 +12,6 @@ class GetNumber
   end
 
   def binary_conversion
-    @generator.split_number(@user_number.to_s(2))
+    @generator.organizer(@user_number.to_s(2))
   end
 end
