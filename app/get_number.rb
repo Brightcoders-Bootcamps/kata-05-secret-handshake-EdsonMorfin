@@ -6,12 +6,12 @@ require_relative 'array_generator'
 class GetNumber
   def initialize
     print 'Put a number: '
-    @user_number = gets.to_i
-    @generator = ArrayGenerator.new(@user_number)
-    binary_conversion
+    user_number = gets.to_i
+    @generator = ArrayGenerator.new(user_number)
+    binary_conversion(user_number)
   end
 
-  def binary_conversion
-    @generator.organizer(@user_number.to_s(2))
+  def binary_conversion(user_number)
+    @generator.organizer(user_number.to_s(2))
   end
 end

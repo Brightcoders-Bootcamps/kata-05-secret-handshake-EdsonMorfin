@@ -9,3 +9,4 @@ git_source(:github) {|repo_name| "https://github.com/Brightcoders-Bootcamps/kata
 gem 'rake'
 gem 'rubycritic'
 gem 'rubycritic-small-badge', :require => false
+gem 'rspec'
