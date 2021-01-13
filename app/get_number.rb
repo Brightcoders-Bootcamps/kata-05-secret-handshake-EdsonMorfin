@@ -1,43 +1,19 @@
-
+require_relative 'array_generator'
 class Get_number
   def initialize
+    print "Put a number: "
+    $user_number= gets
+    @generator = Array_generator.new($user_number)
     ask_number
   end
 
   def ask_number 
-    print "Put a number: "
-    $user_number=gets
     $user_number=$user_number.to_i
     binary_conversion($user_number)
   end
 
   def binary_conversion(number)
-    split_number(binary_number=number.to_s(2))
-  end
-
-  def split_number(binary_number)
-    number,array=binary_number.to_i,[]
-        until number.zero?
-            number,r=number.divmod(10)
-            array.unshift(r)
-        end
-      print array
-      print_message(array)
-  end
-
-  def print_message(array)
-    message_array=[]
-    message_array << "wink" if array[-1]==1
-    message_array << "double wink" if array[-2]==1
-    message_array << "close your eyes" if array[-3]==1
-    message_array << "jump" if array[-4]==1
-    print choice(message_array)
-  end
-
-  def choice(array)
-    array=array.reverse() if $user_number > 16
-    array
+    @generator.split_number(binary_number=number.to_s(2))
   end
 end
 
-Get_number.new
