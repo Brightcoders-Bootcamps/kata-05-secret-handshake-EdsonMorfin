@@ -1,5 +1,7 @@
 ![BrightCoders Logo](img/logo-bc.png)
 
+## Puntuacion rubycritic_badge
+![rubycritic](app\badges\rubycritic_badge_score.svg) 
 # Kata Secret Handshake
 ![cover](img/cover.jpg)
 <span>Photo by <a href="https://unsplash.com/@askkell?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Andy Kelly</a> on <a href="https://unsplash.com/s/photos/handshake?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>

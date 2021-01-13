@@ -68,15 +68,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">33</span><small> lines of codes</small></div>
-              <div><span class="metric">4</span><small> methods</small></div>
+              <div><span class="metric">35</span><small> lines of codes</small></div>
+              <div><span class="metric">5</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">7.8</span><small> complexity/method</small></div>
+              <div><span class="metric">6.6</span><small> complexity/method</small></div>
               <div><span class="metric">0</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">31.27</span><small> complexity</small></div>
+              <div><span class="metric">32.94</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -88,7 +88,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                5
+                3
                 smells
               </a>
             </li>
@@ -105,24 +105,26 @@ class ArrayGenerator
     @user_number = user_number.to_i
   end
 
-  def split_number(binary_number)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>ArrayGenerator#split_number has approx 6 statements</span>          </div>  </li></ol>
-    number = binary_number.to_i
-    array = []
+  def organizer(binary_number)
+    array,message_array = [],[]
+    number=binary_number.to_i
+    print choice(print_message(split_number(array,number),message_array))
+  end
+
+  def split_number(array,number)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>ArrayGenerator#split_number doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
     until number.zero?
       number, r = number.divmod(10)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>ArrayGenerator#split_number has the variable name 'r'</span>          </div>  </li></ol>
       array.unshift(r)
     end
-    print array
-    print_message(array)
+    array
   end
 
-  def print_message(array)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>ArrayGenerator#print_message has approx 6 statements</span>          </div>  </li></ol>
-    message_array = []
-    message_array &lt;&lt; &#39;wink&#39; if array[-1] == 1<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ArrayGenerator#print_message refers to 'array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="array_generator.html#L22" class="js-smell-location">0</a>                  <a href="array_generator.html#L23" class="js-smell-location">1</a>                  <a href="array_generator.html#L24" class="js-smell-location">2</a>                  <a href="array_generator.html#L25" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ArrayGenerator#print_message refers to 'message_array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="array_generator.html#L22" class="js-smell-location">0</a>                  <a href="array_generator.html#L23" class="js-smell-location">1</a>                  <a href="array_generator.html#L24" class="js-smell-location">2</a>                  <a href="array_generator.html#L25" class="js-smell-location">3</a>                  </div>  </li></ol>
-    message_array &lt;&lt; &#39;double wink&#39; if array[-2] == 1<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ArrayGenerator#print_message refers to 'array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="array_generator.html#L22" class="js-smell-location">0</a>                  <a href="array_generator.html#L23" class="js-smell-location">1</a>                  <a href="array_generator.html#L24" class="js-smell-location">2</a>                  <a href="array_generator.html#L25" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ArrayGenerator#print_message refers to 'message_array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="array_generator.html#L22" class="js-smell-location">0</a>                  <a href="array_generator.html#L23" class="js-smell-location">1</a>                  <a href="array_generator.html#L24" class="js-smell-location">2</a>                  <a href="array_generator.html#L25" class="js-smell-location">3</a>                  </div>  </li></ol>
-    message_array &lt;&lt; &#39;close your eyes&#39; if array[-3] == 1<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ArrayGenerator#print_message refers to 'array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="array_generator.html#L22" class="js-smell-location">0</a>                  <a href="array_generator.html#L23" class="js-smell-location">1</a>                  <a href="array_generator.html#L24" class="js-smell-location">2</a>                  <a href="array_generator.html#L25" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ArrayGenerator#print_message refers to 'message_array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="array_generator.html#L22" class="js-smell-location">0</a>                  <a href="array_generator.html#L23" class="js-smell-location">1</a>                  <a href="array_generator.html#L24" class="js-smell-location">2</a>                  <a href="array_generator.html#L25" class="js-smell-location">3</a>                  </div>  </li></ol>
-    message_array &lt;&lt; &#39;jump&#39; if array[-4] == 1<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ArrayGenerator#print_message refers to 'array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="array_generator.html#L22" class="js-smell-location">0</a>                  <a href="array_generator.html#L23" class="js-smell-location">1</a>                  <a href="array_generator.html#L24" class="js-smell-location">2</a>                  <a href="array_generator.html#L25" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ArrayGenerator#print_message refers to 'message_array' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="array_generator.html#L22" class="js-smell-location">0</a>                  <a href="array_generator.html#L23" class="js-smell-location">1</a>                  <a href="array_generator.html#L24" class="js-smell-location">2</a>                  <a href="array_generator.html#L25" class="js-smell-location">3</a>                  </div>  </li></ol>
-    print choice(message_array)
+  def print_message(array,message_array)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>ArrayGenerator#print_message doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    message_array &lt;&lt; &#39;wink&#39; if array[-1] == 1
+    message_array &lt;&lt; &#39;double wink&#39; if array[-2] == 1
+    message_array &lt;&lt; &#39;close your eyes&#39; if array[-3] == 1
+    message_array &lt;&lt; &#39;jump&#39; if array[-4] == 1
+    message_array
   end
 
   def choice(array)
